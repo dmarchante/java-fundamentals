@@ -25,7 +25,7 @@ public class App {
             while(scanFile.hasNextLine()) {
                 String line = scanFile.nextLine();
 
-                if (line != "" && !line.contains("if") && !line.contains("else") && !line.endsWith("{") && !line.endsWith("}") && !line.endsWith(";")) {
+                if (!line.equals("") && !line.contains("if") && !line.contains("else") && !line.endsWith("{") && !line.endsWith("}") && !line.endsWith(";")) {
                     String outputString = String.format("Line %d: Missing semicolon", lineNumber);
                     System.out.println(outputString);
                 }
