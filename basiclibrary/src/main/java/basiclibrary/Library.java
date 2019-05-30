@@ -3,6 +3,8 @@
  */
 package basiclibrary;
 
+import java.util.*;
+
 public class Library {
     public static int[] roll(int num) {
         int[] array = new int[num];
@@ -51,5 +53,70 @@ public class Library {
         }
 
         return lowest;
+    }
+
+    public static String analyzeWeather(int[][] array) {
+        int lowTemp = array[0][0];
+        int highTemp = array[0][0];
+        int arrayLength = 0;
+        Set<Integer> set = new HashSet<>();
+        String output = "";
+
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[i][j] < lowTemp ) {
+                    lowTemp = array[i][j];
+                }
+
+                if (array[i][j] > highTemp ) {
+                    highTemp = array[i][j];
+                }
+
+                set.add(array[i][j]);
+            }
+        }
+
+        output += String.format("High: %s\n", highTemp);
+        output += String.format("Low: %s\n", lowTemp);
+
+        for (int i = lowTemp; i <= highTemp; i++) {
+            if(!set.contains(i)) {
+                arrayLength++;
+            }
+        }
+
+        for (int i = lowTemp; i <= highTemp; i++) {
+            if(set.contains(i)) {
+                output += String.format("Never saw temperature: %s\n", i);
+            }
+        }
+
+        return output;
+    }
+
+    public static String tally(List<String> votes) {
+        Map<String, Integer> count = new HashMap<>();
+        int counter = 0;
+        String highestVote = "";
+
+        for (String name: votes) {
+            if(count.containsKey(name)) {
+                count.put(name, count.get(name) + 1);
+            } else {
+                count.put(name, 1);
+            }
+        }
+
+        for (String name: count.keySet()) {
+            if (count.get(name) > counter) {
+                counter = count.get(name);
+                highestVote = name;
+            }
+        }
+
+//        return count.entrySet().stream().max((el1, el2) -> el1.getValue() > el2.getValue() ? 1 : -1).get().getKey();
+
+        return highestVote;
     }
 }
