@@ -18,3 +18,9 @@
     - testDuplicateTrueMethod
     - testCalculateAverageMethod
     - testCalculateAverageTwoDMethod
+- linter
+  - App.java
+    - main
+    - linter
+  - AppTest.java
+    - testReadJavaScriptFile
