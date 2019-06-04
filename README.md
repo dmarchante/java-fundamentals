@@ -18,6 +18,19 @@
     - testDuplicateTrueMethod
     - testCalculateAverageMethod
     - testCalculateAverageTwoDMethod
+- inheritance
+  - main
+    - java
+      - Restaruant.java
+        - toString
+        - addReview
+        - averageRating
+      - Review.java
+        - toString
+  - test
+    - java
+      - RestaruantTest.java
+      - ReviewTest.java
 - linter
   - App.java
     - main
