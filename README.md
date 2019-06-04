@@ -1,39 +1,19 @@
-# java-fundamentals
+# Java Fundamentals
 
-- basics
-  - Main.class
-  - Main.java
-    - pluralize
-    - flipNHeads
-    - clock
-- basiclibrary
-  - Library.java
-    - roll
-    - containsDuplicates
-    - calculateAverages
-    - calculateTwoDAverages
-  - LibraryTest.java
-    - testRollMethod
-    - testDuplicateFalseMethod
-    - testDuplicateTrueMethod
-    - testCalculateAverageMethod
-    - testCalculateAverageTwoDMethod
-- inheritance
-  - main
-    - java
-      - Restaruant.java
-        - toString
-        - addReview
-        - averageRating
-      - Review.java
-        - toString
-  - test
-    - java
-      - RestaruantTest.java
-      - ReviewTest.java
-- linter
-  - App.java
-    - main
-    - linter
-  - AppTest.java
-    - testReadJavaScriptFile
+  ## Basic Folder
+  - [Main Class](./basics/Main.java)
+
+  ## Basic Library Folder
+  - [Library Class](./basiclibrary/src/main/java/basiclibrary/Library.java)
+  - [Library Test Class](./basiclibrary/src/test/java/basiclibrary/LibraryTest.java)
+
+  ## Inheritance Folder
+  - [Restaurant Class](./inheritance/src/main/java/inheritance/Restaurant.java)
+  - [Review Class](./inheritance/src/main/java/inheritance/Review.java)
+
+  - [Restaurant Test Class](./inheritance/src/test/java/inheritance/RestaurantTest.java)
+  - [Restaurant Test Class](./inheritance/src/test/java/inheritance/ReviewTest.java)
+
+  ## Linter Folder
+  - [App Class (Linter)](./linter/src/main/java/linter/App.java)
+  - [App Test Class (Linter)](./linter/src/test/java/linter/AppTest.java)
