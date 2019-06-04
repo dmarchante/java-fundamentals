@@ -3,22 +3,37 @@
  */
 package inheritance;
 
+import java.util.ArrayList;
+
 public class Restaurant {
     String name;
     int rating;
     String priceCategory;
-
-    public boolean someLibraryMethod() {
-        return true;
-    }
+    ArrayList<Review> reviews;
 
     public Restaurant(String name, int rating, String priceCategory){
         this.name = name;
         this.rating = rating;
         this.priceCategory = priceCategory;
+        this.reviews = new ArrayList<>();
     }
 
     public String toString() {
-       return String.format("%s has a rating of %d of 5 and is a value of %s", this.name, this.rating, this.priceCategory);
+       return String.format("%s has a rating of %d of 5 and is a value of %s\n%s", this.name, this.rating, this.priceCategory, this.reviews.get(0));
+    }
+
+    public void addReview(String body, String author, int stars) {
+        Review review = new Review(body, author, stars);
+        this.reviews.add(review);
+    }
+
+    public void averageRating() {
+        int sum = 0;
+
+        for (Review review: this.reviews) {
+            sum += review.stars;
+        }
+
+        this.rating = sum / reviews.size();
     }
 }

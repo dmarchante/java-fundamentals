@@ -4,20 +4,33 @@
 package inheritance;
 
 import org.junit.Test;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class RestaurantTest {
-    @Test public void testRestuarantString() {
+    @Test public void testRestuarant_string() {
         Restaurant restuarantObject = new Restaurant("Jimbos", 3, "$$");
-        String expectedDescription = "Jimbos has a rating of 3 of 5 and is a value of $$";
+        restuarantObject.addReview("Jimbos is good", "John", 3);
+        String expectedDescription = "Jimbos has a rating of 3 of 5 and is a value of $$\n3 of 5 stars\nJimbos is good by John";
         String actualDescription = restuarantObject.toString();
         assertEquals(expectedDescription, actualDescription);
     }
 
-    @Test public void testReviewString() {
-        Review reviewObject = new Review("Jimbos is good", "John", 3);
-        String expectedDescription = "3 of 5 stars\nJimbos is good by John";
-        String actualDescription = reviewObject.toString();
-        assertEquals(expectedDescription, actualDescription);
+    @Test public void testRestuarant_addReview() {
+        Restaurant restuarantObject = new Restaurant("Jimbos", 3, "$$");
+        restuarantObject.addReview("Jimbos is good", "John", 3);
+        int numOfReviews = restuarantObject.reviews.size();
+        assertEquals(1, numOfReviews);
+    }
+
+    @Test public void testRestuarant_averageRatimng() {
+        Restaurant restuarantObject = new Restaurant("Jimbos", 3, "$$");
+        restuarantObject.addReview("Jimbos is good", "John", 3);
+        restuarantObject.addReview("Jimbos is good", "John", 3);
+        restuarantObject.averageRating();
+        assertEquals(3, restuarantObject.rating);
     }
 }
