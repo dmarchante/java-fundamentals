@@ -12,5 +12,4 @@ public class ReviewTest {
         String actualDescription = reviewObject.toString();
         assertEquals(expectedDescription, actualDescription);
     }
-
 }
