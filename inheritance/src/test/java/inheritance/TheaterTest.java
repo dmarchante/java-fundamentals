@@ -71,4 +71,13 @@ public class TheaterTest {
         assertEquals(1, numOfReviews);
     }
 
+    @Test public void testTheater_construcotr() {
+        ArrayList<String> movies = new ArrayList<>();
+        movies.add("Ten");
+        movies.add("Six");
+        movies.add("Eleven");
+
+        Theater theaterObject = new Theater("Test", movies);
+        assertEquals("Test", theaterObject.name);
+    }
 }

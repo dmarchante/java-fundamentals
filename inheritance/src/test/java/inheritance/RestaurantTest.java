@@ -33,4 +33,11 @@ public class RestaurantTest {
         restuarantObject.averageRating();
         assertEquals(3, restuarantObject.rating);
     }
+
+    @Test public void testRestuarant_constructor() {
+        Restaurant restuarantObject = new Restaurant("Jimbo's", 3, "$$");
+        assertEquals("Jimbo's", restuarantObject.name);
+        assertEquals(3, restuarantObject.rating);
+        assertEquals("$$", restuarantObject.priceCategory);
+    }
 }

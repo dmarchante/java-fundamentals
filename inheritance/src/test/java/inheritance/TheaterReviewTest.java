@@ -20,4 +20,21 @@ public class TheaterReviewTest {
         String actualDescription = reviewObject.toMovieString();
         assertEquals(expectedDescription, actualDescription);
     }
+
+    @Test
+    public void testReviewString_constructor() {
+        TheaterReview reviewObject = new TheaterReview("Jimbo's is good", "John", 3);
+        assertEquals("Jimbo's is good", reviewObject.body);
+        assertEquals("John", reviewObject.author);
+        assertEquals(3, reviewObject.stars);
+        assertEquals("", reviewObject.movie);
+    }
+
+    @Test
+    public void testReviewMovieString_constructor() {
+        TheaterReview reviewObject = new TheaterReview("Jimbo's is good", "John", "Movie Title", 3);
+        assertEquals("Jimbo's is good", reviewObject.body);
+        assertEquals("John", reviewObject.author);
+        assertEquals("Movie Title", reviewObject.movie);
+        assertEquals(3, reviewObject.stars);    }
 }

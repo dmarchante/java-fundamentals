@@ -19,4 +19,11 @@ public class ShopTest {
         int numOfReviews = shopObject.reviews.size();
         assertEquals(1, numOfReviews);
     }
+
+    @Test public void testShop_constructor() {
+        Shop shopObject = new Shop("Jimbo's", "Test", "$$");
+        assertEquals("Jimbo's", shopObject.name);
+        assertEquals("Test", shopObject.description);
+        assertEquals("$$", shopObject.priceCategory);
+    }
 }

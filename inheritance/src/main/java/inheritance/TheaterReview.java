@@ -19,6 +19,5 @@ public class TheaterReview extends Review {
 
     public String toMovieString() {
         return String.format("%s\n%d of 5 stars\n%s by %s", movie, stars, body, author);
-
     }
 }
