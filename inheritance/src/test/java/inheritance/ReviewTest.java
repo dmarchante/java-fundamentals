@@ -13,4 +13,11 @@ public class ReviewTest {
         assertEquals(expectedDescription, actualDescription);
     }
 
+    @Test
+    public void testReview_constructor() {
+        Review reviewObject = new Review("Test body", "Test author", 3);
+        assertEquals("Test body", reviewObject.body);
+        assertEquals("Test author", reviewObject.author);
+        assertEquals(3, reviewObject.stars);
+    }
 }
