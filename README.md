@@ -20,8 +20,11 @@
   - [Theater Test Class](./inheritance/src/main/java/inheritance/TheaterTest.java)
   - [Theater Review Test Class](./inheritance/src/main/java/inheritance/TheaterTestReview.java)
 
-
-
   ## Linter Folder
   - [App Class (Linter)](./linter/src/main/java/linter/App.java)
   - [App Test Class (Linter)](./linter/src/test/java/linter/AppTest.java)
+
+## Quote Folder
+  - [App Class (Quote)](./linter/src/main/java/quotes/App.java)
+  - [Quote Class](./linter/src/main/java/quotes/Quote.java)
+  - [App Test Class (Quote)](./linter/src/test/java/linter/AppTest.java)
