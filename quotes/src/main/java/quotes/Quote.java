@@ -3,10 +3,12 @@ package quotes;
 import java.util.ArrayList;
 
 public class Quote {
-    ArrayList<String> tags;
-    String author;
-    String likes;
-    String text;
+    protected ArrayList<String> tags;
+    protected String author;
+    protected String likes;
+    protected String text;
+//    protected String starWarsQuote;
+
 
     public Quote(ArrayList<String> tags, String author, String likes, String text) {
         this.tags = tags;
@@ -14,4 +16,8 @@ public class Quote {
         this.likes = likes;
         this.text = text;
     }
+
+//    public Quote(String starWarsQuote) {
+//        this.starWarsQuote = starWarsQuote;
+//    }
 }
