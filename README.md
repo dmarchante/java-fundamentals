@@ -26,5 +26,6 @@
 
 ## Quote Folder
   - [App Class (Quote)](./linter/src/main/java/quotes/App.java)
+  - [Star Wars Quote Class](./linter/src/main/java/quotes/StarWarsQuote.java)
   - [Quote Class](./linter/src/main/java/quotes/Quote.java)
   - [App Test Class (Quote)](./linter/src/test/java/linter/AppTest.java)

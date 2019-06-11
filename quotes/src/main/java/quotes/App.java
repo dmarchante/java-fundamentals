@@ -4,33 +4,97 @@
 package quotes;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
-import java.io.File;
+import java.io.*;
+import java.lang.reflect.Type;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        System.out.println(new App().getQuote());
+         System.out.println(new App().getStarWarsFact());
+//        System.out.println(new App().writeQuote());
+    }
+
+    // http://baeldung.com/java-http-request
+    public String getStarWarsFact() {
+        try {
+            // make a request to number fact API
+            // URL url = new URL("http://numbersapi.com/random/trivia?json");
+            URL url = new URL("http://swquotesapi.digitaljedi.dk/api/SWQuote/RandomStarWarsQuote");
+
+            HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
+            // get json data in response; this like of code goes to the internet
+            BufferedReader reader = new BufferedReader(new InputStreamReader((con.getInputStream())));
+
+            // use Gson to parse json string into a number fact object
+            Gson gson = new Gson();
+
+            // access the text of number fact
+            StarWarsQuote swQuote = gson.fromJson(reader, StarWarsQuote.class);
+            ArrayList<String> tags = null;
+
+            Quote quote = new Quote(tags, "", "", swQuote.starWarsQuote);
+
+            writeQuote(quote);
+
+            // return text
+            return swQuote.starWarsQuote;
+        } catch (IOException e) {
+            System.out.println(e);
+            return new App().getQuote();
+        }
+    }
+
+    public void writeQuote(Quote quote) {
+        try {
+            String randomQuoteFile = new App().readFile();
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            Type collectionType = new TypeToken<Collection<Quote>>(){}.getType();
+            Collection<Quote> randomQuoteFileFromJson = gson.fromJson(randomQuoteFile, collectionType);
+            randomQuoteFileFromJson.add(quote);
+
+            FileWriter fileWriter = new FileWriter("src/main/resources/recentquotes.json");
+            fileWriter.write(gson.toJson(randomQuoteFileFromJson));
+            fileWriter.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
     public String getQuote() {
-        StringBuilder randomQuote = new StringBuilder();
+        String randomQuote = new App().readFile();
+
+        Gson gson = new Gson();
+        Quote quoteData[] = gson.fromJson(randomQuote, Quote[].class);
+        Random random = new Random();
+        return quoteData[random.nextInt(quoteData.length)].text;
+    }
+
+    public String readFile() {
+        StringBuilder randomQuoteFile = new StringBuilder();
 
         try {
             Scanner sc = new Scanner(new File("src/main/resources/recentquotes.json"));
 
             while (sc.hasNextLine()) {
-                randomQuote.append(sc.nextLine());
+                randomQuoteFile.append(sc.nextLine());
             }
+
+            return randomQuoteFile.toString();
 
         } catch (Exception e) {
             System.out.println(e);
         }
 
-        Gson gson = new Gson();
-        Quote quoteData[] = gson.fromJson(randomQuote.toString(), Quote[].class);
-        Random random = new Random();
-        return quoteData[random.nextInt(quoteData.length)].text;
+        return randomQuoteFile.toString();
     }
 }
