@@ -44,8 +44,8 @@
 
   ## Songr Folder
     ### Main
-      - [Songr Class](./songr/src/main/java/songr/Songr.java)
-      - [Helllo World Controller](./songr/src/main/java/songr/HelloWOrldController.java)
+      - [Songr Class](./songr/src/main/java/com.dmarchante.code401d4/Songr.java)
+      - [Helllo World Controller](./songr/src/main/java/com.dmarchante.code401d4/HelloWOrldController.java)
 
     ### Test
       - [Songr Test Class](./songr/src/main/java/songr/SongrTest.java)
